@@ -47,13 +47,31 @@ body{
 .hide{
     display: none;
 }
-#question-container{
+#question-container {
     background: white;
     border-radius: 5px;
     margin: 100px 30% auto 30%;
     max-width: 80%;
     font-size: 25px;
     
+}
+
+#end-container, #high-scores{
+    background: white;
+    border-radius: 5px;
+    margin: 100px 30% auto 30%;
+    max-width: 80%;
+    font-size: 25px;
+    padding: 20px 0;
+}
+
+#high-scores{
+    background: white;
+    border-radius: 5px;
+    margin: 100px 30% auto 30%;
+    max-width: 80%;
+    font-size: 25px;
+    padding: 20px 0;
 }
 
 .btn-grid{

@@ -4,6 +4,9 @@ var startButton = document.querySelector("#start")
 var scoreBox = document.querySelector(".score");
 scoreBox.innerHTML = "Score: " + score;
 var score;
+var questionContainer = document.querySelector('#question-container');
+var count = 0;
+var endCont = document.body.querySelector("#end-container")
 
 var questions = [
     {
@@ -45,7 +48,6 @@ var questions = [
 
 ]
 
-var questionContainer = document.querySelector('#question-container');
 
 startButton.addEventListener('click', startGame)
 
@@ -59,7 +61,7 @@ function quizTimer() {
             timer.textContent = "0 seconds left";
             clearInterval(timerInterval);
             alert("Time's Up!")
-            //end quiz
+            endQuiz()
         }
 
     }, 1000);
@@ -72,10 +74,10 @@ function startGame() {
     questionContainer.classList.remove('hide');
     renderQuestions();
 
+
 }
 
 
-var count = 0;
 
 // function for rendering questions
 function renderQuestions() {
@@ -90,50 +92,89 @@ function renderButtons() {
     var answerContainer = document.getElementById('answer-buttons');
     answerContainer.innerHTML = "";
 
-    for (var i = 0; i < questions[count].answers.length; i++) {
+    for (var i = 0; i < 4; i++) {
         var button = document.createElement("button");
         button.classList.add('btn');
         button.hasAttribute('data-correct');
         button.setAttribute('data-correct', questions[count].answers[i].correct);
+        button.onclick = btnclick;
+        button.textContent = questions[count].answers[i].text;
+        answerContainer.appendChild(button);
+        // console.log(questions.answers.correct);
+
         // button.onclick = function () {
         //     alert("working");
         //     count++;
         //     renderQuestions();
         // }
-
-        button.onclick = btnclick;
-        button.textContent = questions[count].answers[i].text;
-        answerContainer.appendChild(button);
-        if (count > 3) {
-            alert(working)
-        }
     }
-
-
-
-
-
-    function btnclick() {
-        // alert("working");
-        count++;
-        renderQuestions();
-        console.log(count);
-
-    }
-
-
-    // 
-
-    // question array 
-    // var questionIndex = questions.length - 1;
-    var runningIndex = 0;
-
-
-
-
-
 
 }
+
+
+
+function btnclick() {
+    // alert("working");
+    count++;
+    if (count < 4) {
+        renderQuestions();
+    }
+    else {
+        endQuiz()
+
+    }
+    console.log(count);
+
+}
+
+
+function endQuiz() {
+    questionContainer.classList.add("hide")
+    // alert("working")
+    endCont.classList.remove("hide")
+    endCont.innerHTML += "End of Quiz <br> <br> Your Score: " + score + "<br>"
+    endCont.innerHTML += "<br> Enter your initials: <br>"
+    endCont.innerHTML += "<input id='input' type='text'> <button class='btn submit'>Submit</button>";
+    var input = document.getElementById("input").value
+    var submit = document.querySelector(".submit")
+    submit.onclick = highScores
+
+    function highScores() {
+        endCont.classList.add("hide")
+        var $scores = document.getElementById("high-scores")
+        $scores.classList.remove("hide")
+        $scores.innerHTML += "HIGH SCORES:"
+
+
+
+        // alert("working")
+
+        console.log(input);
+        // clearTimeout(timer)
+        // stop(quizTimer)
+        // timer.textContent = 0
+    }
+
+}
+
+
+
+// 
+
+// question array 
+// var questionIndex = questions.length - 1;
+var runningIndex = 0;
+
+
+// console.log(this).val()
+// document.querySelector(--"button"--).addEventListener("click", function () {
+//     console.log(this);
+
+// })
+
+
+
+
 // function to keep score
 
 
