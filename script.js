@@ -3,7 +3,7 @@ var secondsLeft = 75;
 var startButton = document.querySelector("#start")
 var scoreBox = document.querySelector(".score");
 var score = 0;
-scoreBox.textContent = "Score: " + score;
+
 console.log(score)
 var questionContainer = document.querySelector('#question-container');
 var count = 0;
@@ -22,28 +22,28 @@ var questions = [
     {
         question: 'What is 2 + 2?',
         answers: [
-            { text: '4', correct: true },
-            { text: '22', correct: false },
             { text: '2', correct: false },
-            { text: '8', correct: false },
+            { text: '13', correct: false },
+            { text: '4', correct: true },
+            { text: '3', correct: false },
         ]
     },
     {
         question: 'What is 3 + 2?',
         answers: [
-            { text: '5', correct: true },
+            { text: '9', correct: false },
             { text: '22', correct: false },
-            { text: '2', correct: false },
+            { text: '5', correct: true },
             { text: '8', correct: false },
         ]
     },
     {
         question: 'What is 4 + 2?',
         answers: [
-            { text: '6', correct: true },
-            { text: '22', correct: false },
+            { text: '4', correct: false },
+            { text: '47', correct: false },
             { text: '2', correct: false },
-            { text: '8', correct: false },
+            { text: '6', correct: true },
         ]
     }
 
@@ -120,6 +120,7 @@ function btnclick() {
     var value = event.target.dataset.correct
     if (value === "true") {
         score++
+        scoreBox.textContent = "Score: " + score;
     }
     console.log(value);
     console.log(score)
@@ -152,22 +153,42 @@ function endQuiz() {
     function highScores() {
         var input = document.querySelector("input").value
         endCont.classList.add("hide")
-        var $scores = document.getElementById("high-scores")
-        $scores.classList.remove("hide")
-        $scores.innerHTML += "HIGH SCORES: <br>"
-        $scores.innerHTML += input + ": " + score
-        var person = [{
+        var person = {
             name: input,
             score: score
-        }]
+        }
+        //Get Json array from local storage
+        var hiScoresAsString = localStorage.getItem("person");
+        // console.log(typeof hiScoresAsString);
+        //Json.parse stringified json array
+        var hiScores;
+        if (hiScoresAsString === null) {
+            hiScores = [];
+        } else (
+            hiScores = JSON.parse(hiScoresAsString)
+        )
+        console.log(hiScores);
+        // at this point we have an array
 
 
-        localStorage.setItem('person', JSON.stringify(person));
+        //add person to array
+        hiScores.push(person);
+        //Json.stringify the array
+        //push new array to local storage using same key to replace data in value
+        localStorage.setItem('person', JSON.stringify(hiScores));
 
         // for (let i = 0; i < .length; i++) {
         //     const element = array[i];
 
         // }
+        var $scores = document.getElementById("high-scores")
+        $scores.classList.remove("hide")
+        $scores.innerHTML += "HIGH SCORES: <br>"
+        // display each hi score
+        hiScores.sort((e, f) => f.score - e.score);
+        hiScores.forEach(e => {
+            $scores.innerHTML += e.name + ": " + e.score + "<br>"
+        })
 
         // alert("working")
 
