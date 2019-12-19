@@ -2,8 +2,9 @@ var timer = document.querySelector(".timer");
 var secondsLeft = 75;
 var startButton = document.querySelector("#start")
 var scoreBox = document.querySelector(".score");
-scoreBox.innerHTML = "Score: " + score;
-var score;
+var score = 0;
+scoreBox.textContent = "Score: " + score;
+console.log(score)
 var questionContainer = document.querySelector('#question-container');
 var count = 0;
 var endCont = document.body.querySelector("#end-container")
@@ -60,7 +61,7 @@ function quizTimer() {
         if (secondsLeft === 0) {
             timer.textContent = "0 seconds left";
             clearInterval(timerInterval);
-            alert("Time's Up!")
+            // alert("Time's Up!")
             endQuiz()
         }
 
@@ -111,18 +112,28 @@ function renderButtons() {
 
 }
 
+// if user clicks on button check if true
+
 
 
 function btnclick() {
+    var value = event.target.dataset.correct
+    if (value === "true") {
+        score++
+    }
+    console.log(value);
+    console.log(score)
     // alert("working");
     count++;
     if (count < 4) {
         renderQuestions();
     }
     else {
-        endQuiz()
+        // endQuiz()
+        secondsLeft = 1
 
     }
+
     console.log(count);
 
 }
@@ -135,17 +146,28 @@ function endQuiz() {
     endCont.innerHTML += "End of Quiz <br> <br> Your Score: " + score + "<br>"
     endCont.innerHTML += "<br> Enter your initials: <br>"
     endCont.innerHTML += "<input id='input' type='text'> <button class='btn submit'>Submit</button>";
-    var input = document.getElementById("input").value
     var submit = document.querySelector(".submit")
     submit.onclick = highScores
 
     function highScores() {
+        var input = document.querySelector("input").value
         endCont.classList.add("hide")
         var $scores = document.getElementById("high-scores")
         $scores.classList.remove("hide")
-        $scores.innerHTML += "HIGH SCORES:"
+        $scores.innerHTML += "HIGH SCORES: <br>"
+        $scores.innerHTML += input + ": " + score
+        var person = [{
+            name: input,
+            score: score
+        }]
 
 
+        localStorage.setItem('person', JSON.stringify(person));
+
+        // for (let i = 0; i < .length; i++) {
+        //     const element = array[i];
+
+        // }
 
         // alert("working")
 
