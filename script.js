@@ -11,39 +11,37 @@ var endCont = document.body.querySelector("#end-container")
 
 var questions = [
     {
-        question: 'What is 1 + 2?',
+        question: 'What is the fastest animal?',
         answers: [
-            { text: '3', correct: true },
-            { text: '22', correct: false },
-            { text: '2', correct: false },
-            { text: '8', correct: false },
+            { text: 'Peregrine Falcon', correct: true },
+            { text: 'Cheetah', correct: false },
+            { text: 'Blue Whale', correct: false },
+            { text: 'Chupacabra', correct: false },
         ]
     },
     {
-        question: 'What is 2 + 2?',
+        question: 'There is no such thing as a poisonous snake',
         answers: [
-            { text: '2', correct: false },
-            { text: '13', correct: false },
-            { text: '4', correct: true },
-            { text: '3', correct: false },
+            { text: 'False', correct: false },
+            { text: 'True', correct: true },
         ]
     },
     {
-        question: 'What is 3 + 2?',
+        question: 'Which is the largest type of owl?',
         answers: [
-            { text: '9', correct: false },
-            { text: '22', correct: false },
-            { text: '5', correct: true },
-            { text: '8', correct: false },
+            { text: 'Saw-whet', correct: false },
+            { text: 'Barred', correct: false },
+            { text: 'Great Grey', correct: true },
+            { text: 'Great Horned', correct: false },
         ]
     },
     {
-        question: 'What is 4 + 2?',
+        question: 'Which animal has the highest blood pressure?',
         answers: [
-            { text: '4', correct: false },
-            { text: '47', correct: false },
-            { text: '2', correct: false },
-            { text: '6', correct: true },
+            { text: 'Hummingbird', correct: false },
+            { text: 'Narwhale', correct: false },
+            { text: 'Elephant', correct: false },
+            { text: 'Giraffe', correct: true },
         ]
     }
 
