@@ -164,8 +164,4 @@ function endQuiz() {
   }
 }
 
-//
-
-// question array
-// var questionIndex = questions.length - 1;
 var runningIndex = 0;
