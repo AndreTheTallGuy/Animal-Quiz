@@ -107,7 +107,6 @@ function btnclick() {
     // endQuiz()
     secondsLeft = 1;
   }
-
   console.log(count);
 }
 
