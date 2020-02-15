@@ -146,10 +146,6 @@ function endQuiz() {
     //push new array to local storage using same key to replace data in value
     localStorage.setItem("person", JSON.stringify(hiScores));
 
-    // for (let i = 0; i < .length; i++) {
-    //     const element = array[i];
-
-    // }
     var $scores = document.getElementById("high-scores");
     $scores.classList.remove("hide");
     $scores.innerHTML += "HIGH SCORES: <br>";
@@ -173,11 +169,3 @@ function endQuiz() {
 // question array
 // var questionIndex = questions.length - 1;
 var runningIndex = 0;
-
-// console.log(this).val()
-// document.querySelector(--"button"--).addEventListener("click", function () {
-//     console.log(this);
-
-// })
-
-// function to keep score
