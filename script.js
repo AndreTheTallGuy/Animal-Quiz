@@ -128,6 +128,7 @@ function endQuiz() {
       name: input,
       score: score
     };
+
     //Get Json array from local storage
     var hiScoresAsString = localStorage.getItem("person");
     // console.log(typeof hiScoresAsString);
