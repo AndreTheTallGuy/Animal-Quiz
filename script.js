@@ -94,7 +94,6 @@ function renderButtons() {
 }
 
 // if user clicks on button check if true
-
 function btnclick() {
   var value = event.target.dataset.correct;
   scoreBox.textContent = "Score: " + score;
