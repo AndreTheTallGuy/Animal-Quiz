@@ -100,7 +100,6 @@ function btnclick() {
   if (value === "true") {
     score++;
   }
-
   count++;
   if (count < 4) {
     renderQuestions();
