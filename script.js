@@ -139,7 +139,6 @@ function endQuiz() {
     } else hiScores = JSON.parse(hiScoresAsString);
     console.log(hiScores);
     // at this point we have an array
-
     //add person to array
     hiScores.push(person);
     //Json.stringify the array
