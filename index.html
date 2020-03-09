@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Quiz</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h4 class="score">Score: 0</h4>
-    <h4 class="timer">75 seconds left</h4>
-    <br />
-    <br />
-    <br />
-    <hr />
-    <div class="container">
-      <button id="start">Click here to begin!</button>
-      <div id="question-container" class="hide">
-        <div id="question">Question</div>
-        <div id="answer-buttons" class="btn-grid"></div>
-      </div>
-      <div id="end-container" class="hide"></div>
-      <div id="high-scores" class="hide"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <h4 class="score">Score: 0</h4>
+  <h4 class="timer">75 seconds left</h4>
+  <br />
+  <br />
+  <br />
+  <hr />
+  <div class="container">
+    <button id="start">Click here to begin!</button>
+    <div id="question-container" class="hide">
+      <div id="question">Question</div>
+      <div id="answer-buttons" class="btn-grid"></div>
+      <div id="more-info"></div>
     </div>
-    <script src="script.js"></script>
-  </body>
+  </div>
+  <div id="end-container" class="hide"></div>
+  <div id="high-scores" class="hide"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>

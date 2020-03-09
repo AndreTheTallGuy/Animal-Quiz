@@ -70,6 +70,7 @@ body{
     max-width: 80%;
     font-size: 25px;
     padding: 20px 0;
+    text-align: center;
 }
 
 #high-scores{
@@ -81,22 +82,29 @@ body{
     padding: 20px 0;
 }
 
+
 .btn-grid{
-    display: grid;
-    grid-template-columns: repeat(2,auto);
-    gap: 10px;
-    margin: 20px 0;
-    padding: 10px;
+    /* display: grid;
+    grid-template-columns: repeat(2,auto); */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* gap: 10px; */
+    /* margin: 20px 0; */
+    padding: 20px ;
 }
 .btn{
     background: indigo;
     color: white;
     border-radius: 10px;
-    padding: 5px 10px;
+    min-width: 300px;
+    padding: 5px 5px;
     outline: none;
     font-size: 30px;
+    margin: 5px;
 }
-.btn:hover{
+.btn:hover,
+.nextBtn:hover{
     border: black;
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -104,6 +112,20 @@ body{
     transition: .7s ease;
     box-shadow: 0px 0px 5px 0px #000000;
 }
+.nextBtn{
+    background: indigo;
+    color: white;
+    border-radius: 10px;
+    padding: 5px 5px;
+    outline: none;
+    font-size: 30px;
+    width: 150px;
+    height: 75px;
+}
+#more-info{
+    padding: 0 20px 20px 20px;
+}
+
 @media only screen and (max-width: 620px){
     #question-container{
         margin: 100px 10% auto 10%;
