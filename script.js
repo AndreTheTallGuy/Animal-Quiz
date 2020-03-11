@@ -118,12 +118,15 @@ function renderButtons() {
 }
 
 // if user clicks on button check if true
-function btnclick() {
+function btnclick(e) {
+  e.preventDefault()
   var value = event.target.dataset.correct;
   scoreBox.textContent = "Score: " + score;
   if (value === "true") {
     score += 5;
   }
+  // document.getElementById("btn").disabled = true;
+
   var next = document.getElementById("answer-buttons");
   var nextBtn = document.createElement("button");
   nextBtn.classList.add("nextBtn")

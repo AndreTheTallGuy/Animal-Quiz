@@ -121,17 +121,26 @@ body{
     font-size: 30px;
     width: 150px;
     height: 75px;
-    margin: 0 100px;
+    margin: 20px 100px;
 }
 #more-info{
     padding: 0 20px 20px 20px;
 }
 
+@media only screen and (max-width: 8000px){
+    .submit{
+        padding: 0;
+        min-width: 200px;
+    }
+    
+
+}
 @media only screen and (max-width: 620px){
     #question-container{
         margin: 100px 10% auto 10%;
     
     }
+    
 
 }
 @media only screen and (max-width: 500px){
@@ -143,12 +152,32 @@ body{
     .btn-grid{
         display: block;
     }
+    .btn{
+        min-width: 200px;
+        font-size: 20px;
+    }
+    .nextBtn{
+        margin: 20px auto;
+    }
+    .submit{
+        padding: 0;
+        min-width: 100px;
+    }
+    #input{
+        max-width: 100px;
+    }
 
 }
 @media only screen and (max-width: 400px){
     .score, .timer{
         font-size: 20px;
         margin-top: 5px;
+    }
+    
+}
+@media only screen and (max-width: 330px){
+    .btn-grid{
+        padding: 0;
     }
     
 }
