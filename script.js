@@ -2,7 +2,7 @@ var timer = document.querySelector(".timer");
 var secondsLeft = 75;
 var startButton = document.querySelector("#start");
 var scoreBox = document.querySelector(".score");
-var score = 0;
+var timerInterval = ""
 
 
 var questionContainer = document.querySelector("#question-container");
@@ -72,7 +72,8 @@ startButton.addEventListener("click", startGame);
 
 function quizTimer() {
   // Create the countdown timer.
-  var timerInterval = setInterval(function () {
+
+  timerInterval = setInterval(function () {
     secondsLeft--;
     timer.textContent = secondsLeft + " seconds left";
 
@@ -83,6 +84,7 @@ function quizTimer() {
       endQuiz();
     }
   }, 1000);
+
 }
 
 // function to start game
@@ -120,7 +122,7 @@ function btnclick() {
   var value = event.target.dataset.correct;
   scoreBox.textContent = "Score: " + score;
   if (value === "true") {
-    score++;
+    score += 5;
   }
   var next = document.getElementById("answer-buttons");
   var nextBtn = document.createElement("button");
@@ -146,8 +148,9 @@ function nextBtnFx() {
   if (count < 6) {
     renderQuestions();
   } else {
-    // endQuiz()
-    secondsLeft = 1;
+    clearTimeout(timerInterval)
+    endQuiz()
+    // secondsLeft = 1;
   }
   console.log(count);
 }
@@ -158,10 +161,10 @@ function endQuiz() {
   questionContainer.classList.add("hide");
   // alert("working")
   endCont.classList.remove("hide");
-  endCont.innerHTML += "End of Quiz <br> <br> Your Score: " + score + "<br>";
+  endCont.innerHTML += "End of Quiz <br> <br> Your Score: " + (score + secondsLeft) + "<br>";
   endCont.innerHTML += "<br> Enter your initials: <br>";
   endCont.innerHTML +=
-    "<input id='input' type='text'> <button class='btn submit'>Submit</button>";
+    "<input id='input' type='text'> <br> <button class='btn submit'>Submit</button>";
   var submit = document.querySelector(".submit");
   submit.onclick = highScores;
 
@@ -207,3 +210,4 @@ function endQuiz() {
   }
 }
 var runningIndex = 0;
+var score = 0;
