@@ -114,6 +114,7 @@ function renderButtons() {
     button.onclick = btnclick;
     button.textContent = questions[count].answers[i].text;
     answerContainer.appendChild(button);
+
   }
 }
 
@@ -125,7 +126,7 @@ function btnclick(e) {
   if (value === "true") {
     score += 5;
   }
-  // document.getElementById("btn").disabled = true;
+
 
   var next = document.getElementById("answer-buttons");
   var nextBtn = document.createElement("button");
